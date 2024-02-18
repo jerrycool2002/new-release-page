@@ -257,13 +257,25 @@
     <div style="display: block; justify-content: center;">
       <img src="static/images/main-results.png" alt="MY ALT TEXT">
   </div>
+  <style>
+    .image-row {
+            display: flex;
+            justify-content: space-around; /* This will space out the images evenly */
+        }
+    .image-row img {
+        max-width: 20%; /* Adjust based on your preference and the container size */
+        height: auto; /* This will maintain the aspect ratio of the images */
+    }
+  </style>
     <h2 class="title">Effect of Question Complexity</h2>
     <br>
     We take a closer look at the model performance by considering multi-dimensional measurements of question complexity, exhibited in Figure 3. Although the performances of both EHRAgent and the baselines gener-ally decrease with an increase in task complexity (either quantified as more elements in queries or more columns in solutions), EHRAgent consistently outperforms all the baselines at various levels of difficulty. 
-    <img src="static/images/line_q_tag_sr-v2.png" alt="MY ALT TEXT">
-    <img src="static/images/line_q_tag_cr-v2.png" alt="MY ALT TEXT">
-    <img src="static/images/line_column_sr-v2.png" alt="MY ALT TEXT">
-    <img src="static/images/line_column_cr-v2.png" alt="MY ALT TEXT">
+    <div classs="image-row">
+      <img src="static/images/line_q_tag_sr-v2.png" alt="MY ALT TEXT">
+      <img src="static/images/line_q_tag_cr-v2.png" alt="MY ALT TEXT">
+      <img src="static/images/line_column_sr-v2.png" alt="MY ALT TEXT">
+      <img src="static/images/line_column_cr-v2.png" alt="MY ALT TEXT">
+    </div>
     <br>
     BBox-Adapter consistently outperforms gpt-3.5-turbo by an average of 6.39% across all datasets, highlighting its efficacy in adapting black-box LLMs to specific tasks.
     Notably, BBox-Adapter (AI Feedback) demonstrates competitive performance compared to BBox-Adapter (Ground-Truth), which demonstrates its robust generalization capability across datasets, even in the absence of ground-truth answers.
