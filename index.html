@@ -186,7 +186,7 @@
           padding: 5px;
           margin-right: 10px;
         }
-        img {
+        .figure img {
           max-width: 100%;
           height: auto;
           display: none;
@@ -204,33 +204,46 @@
         <br>
         <select id="exampleSelector" name="exampleSelector">
           <option value="">--Select--</option>
-          <option value="example0">Example 0</option>
-          <option value="example1">Example 1</option>
-          <option value="example2">Example 2</option>
-          <option value="example3">Example 3</option>
-          <option value="example4">Example 4</option>
-          <option value="example5">Example 5</option>
+          <option value="example0">Example 0: MIMIC-III</option>
+          <option value="example1">Example 1: MIMIC-III</option>
+          <option value="example2">Example 2: eICU</option>
+          <option value="example3">Example 3: eICU</option>
+          <option value="example4">Example 4: TREQS</option>
+          <option value="example5">Example 5: TREQS</option>
           <!-- Add other options here -->
         </select>
       </div>
-      <div id="exampleDisplay">
-        <img id="example0" src="static/images/web-mimiciii-case1.gif" alt="Image 1">
-        <img id="example1" src="static/images/web-mimiciii-case2.gif" alt="Image 2">
-        <img id="example2" src="static/images/web-eicu-case3.gif" alt="Image 3">
-        <img id="example3" src="static/images/web-eicu-case4.gif" alt="Image 4">
-        <img id="example4" src="static/images/web-treqs-case5.gif" alt="Image 5">
-        <img id="example5" src="static/images/web-treqs-case6.gif" alt="Image 6">
+      <div id="example0" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-mimiciii-case1.gif" alt="Image 1">
+      </div>
+      <div id="example1" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-mimiciii-case2.gif" alt="Image 2">
+      </div>
+      <div id="example2" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-eicu-case3.gif" alt="Image 3">
+      </div>
+      <div id="example3" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-eicu-case4.gif" alt="Image 4">
+      </div>
+      <div id="example4" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-treqs-case5.gif" alt="Image 5">
+      </div>
+      <div id="example5" class="figure" style="display:none;">
+        <img class="figure" src="static/images/web-treqs-case6.gif" alt="Image 6">
+      </div>
     </div>
     <script>
-      document.getElementById('exampleSelector').addEventListener('change', function() {
-          // Hide all images
-          document.querySelectorAll('#exampleDisplay img').forEach(function(img) {
-              img.classList.remove('visible');
+      document.getElementById('figureSelector').addEventListener('change', function() {
+          // Hide all figures first
+          document.querySelectorAll('.figure').forEach(function(figure) {
+              figure.style.display = 'none';
           });
-  
-          // Show selected image
-          const selectedValue = this.value;
-          document.getElementById(selectedValue).classList.add('visible');
+
+          // Show the selected figure
+          var selectedFigure = document.getElementById(this.value);
+          if (selectedFigure) {
+              selectedFigure.style.display = 'block';
+          }
       });
   </script>
       </body>
@@ -242,7 +255,7 @@
     <h2 class="title">Introduction</h2>
     Adapting black-box LLMs through fine-tuning APIs has several critical issues on <b>transparency</b>, <b>privacy</b>, and <b>cost</b>. The adaptation of black-box LLMs without the use of APIs remains an unresolved challenge.
     <br><br>
-    <div style="display: flex; justify-content: center;">
+    <div style="display: block; justify-content: center;">
       <img src="static/images/teaser.png" alt="MY ALT TEXT"width="450" height="310">
   </div>
     <br>
