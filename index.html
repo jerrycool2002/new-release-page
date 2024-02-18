@@ -251,28 +251,19 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">Experiments</h2>
+    <h2 class="title">Main Results</h2>
     EHRAgent significantly outperforms all the baselines on all three datasets with a performance gain of <b>19.92%</b>, <b>12.41%</b>, and <b>29.60%</b>, respectively. This indicates the efficacy of our key designs, namely interactive coding with environment feedback and domain knowledge injection, as they gradually refine the generated code and provide sufficient back ground knowledge during the planning process.
     <br><br>
     <div style="display: block; justify-content: center;">
       <img src="static/images/main-results.png" alt="MY ALT TEXT">
   </div>
+    <h2 class="title">Effect of Question Complexity</h2>
     <br>
-    Due to the black-box nature, users are unable to access
-    <ul>
-      <li>internal model parameters,</li>
-      <li>high-dimensional representations of input sequences or output generations, and</li>
-      <li>output token probabilities for their specific use cases in black-box adaptation.</li>
-    </ul>
-    Notably, existing methods, except ours, fail to support black-box LLM adaptations, where neither model parameters nor output probabilities can be accessed in most recent LLMs like GPT-3.5 and Gemini. BBox-Adapter adopts an online adaptation framework, iteratively sampling from previous inferences and updating the adapter.
-    <br><br>
-    <img src="static/images/overview.png" alt="MY ALT TEXT">
-    <br>
-    <h2 class="title">Experiments</h2>
-    <br>
-    We evaluate BBox-Adapter on four distinct question-answering tasks, requiring model adaptation on mathematical (GSM8K), implicit-reasoning (StrategyQA), truthful (TruthfulQA), and scientific (ScienceQA) domains.     <ul>
-    <h3 class="title">Main Results</h3>
-    <img src="static/images/main_table.png" alt="MY ALT TEXT">
+    We take a closer look at the model performance by considering multi-dimensional measurements of question complexity, exhibited in Figure 3. Although the performances of both EHRAgent and the baselines gener-ally decrease with an increase in task complexity (either quantified as more elements in queries or more columns in solutions), EHRAgent consistently outperforms all the baselines at various levels of difficulty. 
+    <img src="static/images/line_q_tag_sr-v2.png" alt="MY ALT TEXT">
+    <img src="static/images/line_q_tag_cr-v2.png" alt="MY ALT TEXT">
+    <img src="static/images/line_column_sr-v2.png" alt="MY ALT TEXT">
+    <img src="static/images/line_column_cr-v2.png" alt="MY ALT TEXT">
     <br>
     BBox-Adapter consistently outperforms gpt-3.5-turbo by an average of 6.39% across all datasets, highlighting its efficacy in adapting black-box LLMs to specific tasks.
     Notably, BBox-Adapter (AI Feedback) demonstrates competitive performance compared to BBox-Adapter (Ground-Truth), which demonstrates its robust generalization capability across datasets, even in the absence of ground-truth answers.
