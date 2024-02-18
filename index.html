@@ -286,7 +286,101 @@
   </div>
 </section>
 
+<section class="section" id="Cases">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Case Studies</h2>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dropdown Case</title>
+      <style>
+        .dropdown-container {
+          margin: 20px;
+          padding: 10px;
+        }
+        select {
+          width: 200px;
+          padding: 5px;
+          margin-right: 10px;
+        }
+        .figure img {
+          max-width: 100%;
+          height: auto;
+        }
 
+        .visible {
+          display: block;
+        }
+      </style>
+      </head>
+      <body>
+      
+      <div class="dropdown-container">
+        <label for="caseSelector">Select the case:</label>
+        <br>
+        <select id="caseSelector" name="caseSelector">
+          <option value="">--Select--</option>
+          <option value="case0">Case 0: Complexity-I</option>
+          <option value="case1">Case 1: Complexity-II</option>
+          <option value="case2">Case 2: Complexity-III</option>
+          <option value="case3">Case 3: Complexity-IV</option>
+          <option value="case4">Case 4: Code-I</option>
+          <option value="case5">Case 5: Code-II</option>
+          <option value="case6">Case 6: Debug</option>
+          <option value="case7">Case 7: Knowledge</option>
+          <option value="case8">Case 8: Main</option>
+          <option value="case9">Case 9: Memory</option>
+          <!-- Add other options here -->
+        </select>
+      </div>
+      <div id="case0" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-I.png" alt="Image 1">
+      </div>
+      <div id="case1" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-II.png" alt="Image 2">
+      </div>
+      <div id="case2" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-III.png" alt="Image 3">
+      </div>
+      <div id="case3" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-IV.png" alt="Image 4">
+      </div>
+      <div id="case4" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-code1.png" alt="Image 5">
+      </div>
+      <div id="case5" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-code2.png" alt="Image 6">
+      </div>
+      <div id="case6" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-debug.png" alt="Image 7">
+      </div>
+      <div id="case7" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-knowledge.png" alt="Image 8">
+      </div>
+      <div id="case8" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-main.png" alt="Image 9">
+      </div>
+      <div id="case9" class="figure" style="display:none;">
+        <img src="static/images/acl24-case-memory.png" alt="Image 10">
+      </div>
+    </div>
+    <script>
+      document.getElementById('caseSelector').addEventListener('change', function() {
+          // Hide all figures first
+          document.querySelectorAll('.figure').forEach(function(figure) {
+              figure.style.display = 'none';
+          });
+
+          // Show the selected figure
+          var selectedFigure = document.getElementById(this.value);
+          if (selectedFigure) {
+              selectedFigure.style.display = 'block';
+          }
+      });
+  </script>
+      </body>
+  </div>
+</section>
 
 
 
@@ -301,11 +395,11 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{sun2024bboxadapter,
-        title={BBox-Adapter: Lightweight Adapting for Black-Box Large Language Models}, 
-        author={Haotian Sun and Yuchen Zhuang and Wei Wei and Chao Zhang and Bo Dai},
+      <pre><code>@misc{shi2024ehragent,
+        title={EHRAgent: Code Empowers Large Language Models for Complex Tabular Reasoning on Electronic Health Records}, 
+        author={Wenqi Shi and Ran Xu and Yuchen Zhuang and Yue Yu and Jieyu Zhang and Hang Wu and Yuanda Zhu and Joyce Ho and Carl Yang and May D. Wang},
         year={2024},
-        eprint={2402.08219},
+        eprint={2401.07128},
         archivePrefix={arXiv},
         primaryClass={cs.CL}
   }</code></pre>
