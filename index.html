@@ -263,13 +263,11 @@
             justify-content: space-around; /* This will space out the images evenly */
         }
     .image-row img {
-        max-width: 20%; /* Adjust based on your preference and the container size */
+        max-width: 24%; /* Adjust based on your preference and the container size */
         height: auto; /* This will maintain the aspect ratio of the images */
     }
   </style>
     <h2 class="title">Effect of Question Complexity</h2>
-    <br>
-    We take a closer look at the model performance by considering multi-dimensional measurements of question complexity, exhibited in Figure 3. Although the performances of both EHRAgent and the baselines gener-ally decrease with an increase in task complexity (either quantified as more elements in queries or more columns in solutions), EHRAgent consistently outperforms all the baselines at various levels of difficulty. 
     <div class="image-row">
       <img src="static/images/line_q_tag_sr-v2.png" alt="MY ALT TEXT">
       <img src="static/images/line_q_tag_cr-v2.png" alt="MY ALT TEXT">
@@ -277,30 +275,14 @@
       <img src="static/images/line_column_cr-v2.png" alt="MY ALT TEXT">
     </div>
     <br>
-    BBox-Adapter consistently outperforms gpt-3.5-turbo by an average of 6.39% across all datasets, highlighting its efficacy in adapting black-box LLMs to specific tasks.
-    Notably, BBox-Adapter (AI Feedback) demonstrates competitive performance compared to BBox-Adapter (Ground-Truth), which demonstrates its robust generalization capability across datasets, even in the absence of ground-truth answers.
-    Furthermore, BBox-Adapter (Combined) achieves the highest performance among the three variations.
-    This enhanced performance can be attributed to the combination of high-quality initial positive sets derived from ground-truth solutions and the dynamic updating of positive sets through AI feedback, leading to the continuous self-improvement of BBox-Adapter. 
-    <h3 class="title">Plug-and-Play</h3>
+    We take a closer look at the model performance by considering multi-dimensional measurements of question complexity, exhibited in Figure 3. Although the performances of both EHRAgent and the baselines gener-ally decrease with an increase in task complexity (either quantified as more elements in queries or more columns in solutions), EHRAgent consistently outperforms all the baselines at various levels of difficulty. 
+    <h2 class="title">Sample Efficiency</h2>
+    <div class="image-row">
+      <img src="static/images/line_demo_sr-v3.png" alt="MY ALT TEXT">
+      <img src="static/images/line_demo_cr-v3.png" alt="MY ALT TEXT">
+    </div>
     <br>
-    <img src="static/images/pnp.png" alt="MY ALT TEXT">
-    <br>
-    The tuned BBox-Adapter can be seamlessly applied to various black-box LLMs in a plug-and-play manner, eliminating the need for retraining or additional technical modifications. Compared to their unadapted black-box LLMs, davinci-002 and Mixtral-8x7B, our trained adapter demonstrates an average performance improvement of 6.85% and 4.50% across all three datasets, respectively. 
-    The effectiveness of BBox-Adapter in plug-and-play scenarios arises from its independence from the internal parameters of black-box LLMs. 
-    <h3 class="title">Costs</h3>
-    <br>
-    <img src="static/images/cost.png" alt="MY ALT TEXT">
-    <br>
-    Compared with the base model, Azure-SFT boosts accuracy by an average of 6.35% at the expense of significantly higher costs.
-BBox-Adapter, in single-step inference variant, brings 3.45% performance gain compared with the base model, with 41.97 times less training cost and 6.27 times less inference cost than SFT.
-Meanwhile, its full-step inference variant achieves 5.90% improvement over the base model with 31.30 times less training cost and 1.84 times less inference cost.
-This increased cost in its full-step variant is attributed to the integration of a beam search in the adapted inference, which requires the use of the black-box LLM APIs to generate multiple solution paths for selection.
-
-    <h3 class="title">Case Study</h3>
-    <br>Here is a case study of BBox-Adapter on GSM8K. For the given question, the CoT solution from original gpt-3.5-turbo is incorrect, while the model adapted using BBox-Adapter successfully executed a logical, step-by-step search, ultimately yielding the correct answer. For clarity, we display only the top-3 candidate answers at each step.
-    <br><br>
-    <img src="static/images/case.png" alt="MY ALT TEXT">
-
+    The above figure illustrates the model performance wrt. number of demonstrations for EHRAgent and the two strongest baselines, AutoGen and Self-Debugging. Compared to supervised learning (e.g., text-to-SQL) that requires extensive training on over 10K samples with detailed annotations (e.g., SQL code), LLM agents enable complex tabular reasoning using a few demonstrations only. One interesting finding is that as the number of examples increases, both the success and completion rate of AutoGen tend to decrease, mainly due to the context limitation of LLMs. Notably, the performance of EHRAgent remains stable with more demonstrations, which may benefit from its integration of a rubber duck debugging module and the adaptive mechanism for selecting the most relevant demonstrations. 
   </div>
 </section>
 
